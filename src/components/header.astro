@@ -1,0 +1,64 @@
+---
+import "swiper/css";
+import "swiper/css/effect-fade";
+import "swiper/css/autoplay";
+
+const slides = [
+  "/images/fondo-1.jpg",
+  "/images/fondo-2.jpg",
+  "/images/fondo-3.jpg",
+];
+---
+<div class="relative h-[900px] lg:h-dhv w-full overflow-hidden">
+  <div class="swiper mySwiper h-[900px] lg:h-screen w-full absolute top-0 left-0 z-0">
+    <div class="swiper-wrapper">
+      {
+        slides.map((src) => (
+          <div class="swiper-slide mask-alpha mask-b-from-white mask-b-from-80% mask-b-to-navy-blue-800">
+            <img src={src} class="object-cover h-[900px] lg:h-screen w-full" alt="slide" />
+            <div class="absolute inset-0 bg-linear-to-bl from-navy-blue-300/30 to-navy-blue-800 " />
+          </div>
+        ))
+      }
+    </div>
+  </div>
+  <div
+    class="absolute inset-0 z-10 flex items-center justify-center text-white px-4"
+  >
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-center md:text-left place-items-center pt-30 lg:pt-0">
+    <div class="text-center max-w-2xl">
+      <h1 class="text-6xl md:text-9xl font-bold font-tangerine ">Luisa Eugenia Guzmán</h1>
+      <h2 class="text-xl md:text-3xl font-bold ">Directora General Corporativo Meguz</h2>
+      <p class="mt-4 text-base md:text-xl">
+        La Lic. Eugenia Guzmán es Empresaria, Inversionista, Concesionaria de
+        Telecomunicaciones, Conferencista y pionera en brindar servicios
+        educativos bilingües y de calidad en Playa del Carmen, Quintana Roo.
+      </p>
+      <a
+        href=""
+        class="mt-6 text-xl font-bold inline-block bg-white text-navy-blue-800 px-6 py-3 rounded-md hover:bg-navy-blue-800 hover:text-white transition"
+      >
+        Contactame
+      </a>
+    </div>
+    <div>
+        <img src="/images/foto-principal.png" alt="" class="w-xl">
+    </div>
+    </div>
+  </div>
+
+  <script>
+    import Swiper from "swiper";
+    import { Autoplay, EffectFade } from "swiper/modules";
+
+    const swiper = new Swiper(".mySwiper", {
+      modules: [Autoplay, EffectFade],
+      effect: "fade",
+      loop: true,
+      autoplay: {
+        delay: 5000,
+        disableOnInteraction: false,
+      },
+    });
+  </script>
+</div>

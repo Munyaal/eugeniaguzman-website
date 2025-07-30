@@ -1,0 +1,154 @@
+---
+import Phone from "../assets/svg/phone.svg";
+import Email from "../assets/svg/email.svg";
+import Whatsapp from "../assets/svg/whatsapp.svg";
+---
+
+<section class="bg-navy-blue-100" id="contacto">
+  <div class="flex flex-col p-4 md:p-8 max-w-[1580px] w-full lg:mx-auto">
+    <!-- Título -->
+    <h1 class="text-6xl md:text-8xl font-bold text-center mb-6 md:mb-10 font-tangerine text-navy-blue-800 mt-20">
+      Contáctame
+    </h1>
+
+    <!-- Contenedor principal que cambia de columna a fila en md: -->
+    <div class="flex flex-col md:flex-row gap-6 md:gap-8">
+      <!-- FORMULARIO (siempre primero en el flujo) -->
+      <div class="w-full md:w-1/2 p-4 md:p-8 rounded-lg order-1 md:order-1">
+        <form>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+            <!-- Nombre -->
+            <div class="md:col-span-1">
+              <label
+                for="fName"
+                class="block text-base md:text-2xl font-medium text-navy-blue-800 mb-2 md:mb-4"
+                >Nombre completo</label
+              >
+              <input
+                type="text"
+                name="fName"
+                id="fName"
+                placeholder="Tu nombre completo"
+                required
+                class="w-full rounded-2xl border border-navy-blue-300 bg-navy-blue-100 text-navy-blue-600 py-2 px-4 text-base md:text-2xl font-medium outline-none focus:border-navy-blue-800 focus:shadow-md"
+              />
+            </div>
+
+            <!-- Teléfono -->
+            <div class="md:col-span-1">
+              <label
+                for="fPhone"
+                class="block text-base md:text-2xl font-medium text-navy-blue-800 mb-2 md:mb-4"
+                >Número telefónico</label
+              >
+              <input
+                type="tel"
+                name="fPhone"
+                id="fPhone"
+                placeholder="Tu número telefónico"
+                required
+                class="w-full rounded-2xl border border-navy-blue-300 bg-navy-blue-100 text-navy-blue-600 py-2 px-4 text-base md:text-2xl font-medium outline-none focus:border-navy-blue-800 focus:shadow-md"
+              />
+            </div>
+
+            <!-- Email -->
+            <div class="md:col-span-1">
+              <label
+                for="fEmail"
+                class="block text-base md:text-2xl font-medium text-navy-blue-800 mb-2 md:mb-4"
+                >Correo electrónico</label
+              >
+              <input
+                type="email"
+                name="fEmail"
+                id="fEmail"
+                placeholder="Tu correo electrónico"
+                required
+                class="w-full rounded-2xl border border-navy-blue-300 bg-navy-blue-100 text-navy-blue-600 py-2 px-4 text-base md:text-2xl font-medium outline-none focus:border-navy-blue-800 focus:shadow-md"
+              />
+            </div>
+
+            <!-- Asunto -->
+            <div class="md:col-span-1">
+              <label
+                for="fSubject"
+                class="block text-base md:text-2xl font-medium text-navy-blue-800 mb-2 md:mb-4"
+                >Asunto</label
+              >
+              <input
+                type="text"
+                name="fSubject"
+                id="fSubject"
+                placeholder="Asunto del mensaje"
+                required
+                class="w-full rounded-2xl border border-navy-blue-300 bg-navy-blue-100 text-navy-blue-600 py-2 px-4 text-base md:text-2xl font-medium outline-none focus:border-navy-blue-800 focus:shadow-md"
+              />
+            </div>
+
+            <!-- Mensaje -->
+            <div class="md:col-span-2">
+              <label
+                for="fComments"
+                class="block text-base md:text-2xl font-medium text-navy-blue-800 mb-2 md:mb-4"
+                >Mensaje</label
+              >
+              <textarea
+                name="fComments"
+                id="fComments"
+                rows="4"
+                placeholder="Escribe tu mensaje aquí"
+                required
+                class="w-full rounded-2xl border border-navy-blue-300 bg-navy-blue-100 text-navy-blue-600 py-2 px-4 text-base md:text-2xl font-medium outline-none focus:border-navy-blue-800 focus:shadow-md resize-none"
+              ></textarea>
+            </div>
+          </div>
+
+          <!-- Botón -->
+          <button
+            type="submit"
+            class="mt-4 md:mt-6 w-full bg-navy-blue-800 text-white py-2 md:py-3 px-4 md:px-6 rounded-2xl text-base md:text-2xl font-medium hover:bg-navy-blue-700 transition-colors duration-300"
+          >
+            Enviar
+          </button>
+        </form>
+      </div>
+
+      <!-- INFORMACIÓN DE CONTACTO (segundo en móvil, derecha en desktop) -->
+      <div class="w-full md:w-1/2 bg-navy-blue-900 p-4 md:p-8 rounded-lg order-2 md:order-2">
+        <h1 class="text-white text-2xl md:text-3xl font-bold text-center">Contacto</h1>
+
+        <div class="flex flex-col items-start mt-4 space-y-3 md:space-y-4">
+          <div class="flex items-center gap-2">
+            <Phone class="w-6 h-6 md:w-8 md:h-8 inline-block fill-white" />
+            <span class="text-white text-base md:text-lg"
+              ><strong>Oficina:</strong><br /> +52 984 267 2999</span
+            >
+          </div>
+          <div class="flex items-center gap-2">
+            <Whatsapp class="w-6 h-6 md:w-8 md:h-8 inline-block fill-white" />
+            <span class="text-white text-base md:text-lg"
+              ><strong>Cel:</strong><br /> (984) 801 0161</span
+            >
+          </div>
+          <div class="flex items-center gap-2">
+            <Email class="w-6 h-6 md:w-8 md:h-8 inline-block fill-white" />
+            <span class="text-white text-base md:text-lg"
+              ><strong>E-mail:</strong><br /> eugeniaguzman@educacionmeguz.com</span
+            >
+          </div>
+        </div>
+
+        <div class="mt-6 md:mt-10 flex justify-center">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7466.737088854642!2d-87.064921!3d20.65458!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f4e42cd0066d01f%3A0x5290b070334a5577!2sColegio%20Ingl%C3%A9s!5e0!3m2!1ses-419!2sus!4v1753808754109!5m2!1ses-419!2sus"
+            style="border:0;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade" 
+            class="rounded-3xl h-[200px] md:h-[250px] lg:h-[300px] w-full max-w-[600px]">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

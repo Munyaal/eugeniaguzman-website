@@ -1,0 +1,23 @@
+@import "tailwindcss";
+
+@theme inline {
+    --color-navy-blue-900: #123868;
+    --color-navy-blue-800: #0f427d;
+    --color-navy-blue-700: #0e51a0;
+    --color-navy-blue-600: #0f60ba;
+    --color-navy-blue-500: #1c7cdb;
+    --color-navy-blue-400: #4499ec;
+    --color-navy-blue-300: #85bbf4;
+    --color-navy-blue-200: #bedaf9;
+    --color-navy-blue-100: #e2edfc;
+
+    --font-tangerine: 'Tangerine', sans-serif;
+    
+}
+
+@font-face {
+    font-family: 'Tangerine';
+    src: url(/fonts/Tangerine-Bold.woff2) format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}

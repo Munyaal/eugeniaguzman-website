@@ -1,0 +1,61 @@
+---
+
+---
+
+<nav class="bg-navy-blue-400 shadow-lg  z-20 fixed top-0 left-0 w-full flex">
+  
+  <div class="py-5 px-3 max-w-[1440px]  w-full mx-auto flex justify-between">
+    <div>
+    <img src="/images/logo-guzman-blanco.png" alt="Logo Blanco" class="w-32" />
+    </div>
+    <div class="hidden md:flex gap-5 place-items-center text-white font-bold text-lg">
+    <button class="inicio">Inicio</button>
+    <button class="sobreMi">Sobre Mi</button>
+    <button class="mis-Marcas">Marcas</button>
+    <button class="mi-contacto">Contacto</button>
+  </div>
+  </div>
+</nav>
+<script >
+  import { gsap } from "gsap";
+  import { ScrollToPlugin } from 'gsap/dist/ScrollToPlugin';
+
+  gsap.registerPlugin(ScrollToPlugin);
+
+  const inicioButton = document.querySelector(".inicio");
+  const buttonHero = document.querySelector(".sobreMi");
+  const buttonBrands = document.querySelector(".mis-Marcas");
+  const buttonContact = document.querySelector(".mi-contacto");
+
+  inicioButton?.addEventListener("click", () => {
+    gsap.to(window, {
+      scrollTo: 0,
+      duration: 0.6,
+      ease: "power1.inOut",
+    });
+  });
+
+  buttonHero?.addEventListener("click", () => {
+    gsap.to(window, {
+      scrollTo: "#sobre-mi",
+      duration: 0.6,
+      ease: "power1.inOut",
+    });
+  });
+
+  buttonBrands?.addEventListener("click", () => {
+    gsap.to(window, {
+      scrollTo: "#mis-marcas",
+      duration: 0.6,
+      ease: "power1.inOut",
+    });
+  });
+
+  buttonContact?.addEventListener("click", () => {
+    gsap.to(window, {
+      scrollTo: "#contacto",
+      duration: 0.6,
+      ease: "power1.inOut",
+    });
+  });
+</script>
