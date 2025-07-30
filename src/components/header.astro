@@ -34,12 +34,9 @@ const slides = [
         Telecomunicaciones, Conferencista y pionera en brindar servicios
         educativos bilingües y de calidad en Playa del Carmen, Quintana Roo.
       </p>
-      <a
-        href=""
-        class="mt-6 text-xl font-bold inline-block bg-white text-navy-blue-800 px-6 py-3 rounded-md hover:bg-navy-blue-800 hover:text-white transition"
-      >
-        Contactame
-      </a>
+      <button type="button" class="button-hero mt-6 text-xl font-bold inline-block bg-white text-navy-blue-800 px-6 py-3 rounded-md hover:bg-navy-blue-800 hover:text-white transition">
+        Contáctame
+      </button>
     </div>
     <div>
         <img src="/images/foto-principal.png" alt="" class="w-xl">
@@ -62,3 +59,19 @@ const slides = [
     });
   </script>
 </div>
+  <script>
+  import { gsap } from "gsap";
+  import { ScrollToPlugin } from 'gsap/dist/ScrollToPlugin';
+
+
+  gsap.registerPlugin(ScrollToPlugin);
+
+  const buttonHero = document.querySelector(".button-hero");
+
+  buttonHero?.addEventListener("click", () => {
+    gsap.to(window, {
+      scrollTo: "#contacto",
+      duration: .6,
+    });
+  });
+  </script>

@@ -17,6 +17,7 @@ import Menu from '../assets/svg/menu.svg';
   <div class="hidden md:flex gap-5 items-center text-white font-bold text-lg ml-auto">
     <button class="inicio">Inicio</button>
     <button class="sobreMi">Sobre Mí</button>
+    <button class="mi-podcast">Podcast</button>
     <button class="mis-Marcas">Marcas</button>
     <button class="mi-contacto">Contacto</button>
   </div>
@@ -26,6 +27,7 @@ import Menu from '../assets/svg/menu.svg';
   <div class="md:hidden absolute top-full left-0 w-full bg-navy-blue-400 shadow-lg hidden flex-col gap-4 py-4 px-6 text-white font-bold text-lg" id="menu-items">
     <button class="inicio w-full text-center py-2">Inicio</button>
     <button class="sobreMi w-full text-center py-2">Sobre Mi</button>
+    <button class="mi-podcast w-full text-center py-2">Podcast</button>
     <button class="mis-Marcas w-full text-center py-2">Marcas</button>
     <button class="mi-contacto w-full text-center py-2">Contacto</button>
   </div>
@@ -70,6 +72,17 @@ document.querySelectorAll(".sobreMi").forEach(button => {
   button.addEventListener("click", () => {
     gsap.to(window, {
       scrollTo: "#sobre-mi",
+      duration: 0.6,
+      ease: "power1.inOut",
+    });
+    document.getElementById("menu-items")?.classList.add("hidden");
+  });
+});
+
+document.querySelectorAll(".mi-podcast").forEach(button => {
+  button.addEventListener("click", () => {
+    gsap.to(window, {
+      scrollTo: "#podcast",
       duration: 0.6,
       ease: "power1.inOut",
     });
