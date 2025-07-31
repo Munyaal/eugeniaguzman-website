@@ -1,5 +1,7 @@
 ---
 import Play from "../assets/svg/play.svg";
+import ArrowLeft from "../assets/svg/arrowLeft.svg";
+import ArrowRight from "../assets/svg/arrowRight.svg";
 const videos = [
   {
     id: "wJOZKgEg9-4",
@@ -35,37 +37,43 @@ const videos = [
 ---
 
 <section id="podcast">
-    <div class="py-8 lg:py-15">
-<h1 class="text-6xl  lg:text-8xl font-bold text-center mb-6  font-tangerine text-navy-blue-800 mt-20">Mi Podcast</h1>
-  <div class="swiper videoSwiper max-w-[350px] lg:max-w-[1450px] h-[250px] md:h-[400px] relative">
-    <div class="swiper-wrapper">
-      {
-        videos.map((video) => (
-          <div class="swiper-slide">
-            <div
-              class="flex aspect-video max-w-[600px] rounded-xl overflow-hidden relative cursor-pointer"
-              onclick={`this.outerHTML = '<iframe class="justify-center items-center max-w-xl w-full h-[250px] sm:h-[380px]  rounded-xl" src="https://www.youtube.com/embed/${video.id}?autoplay=1" title="${video.title}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'`}
-            >
-              <img
-                src={video.thumbnail}
-                alt={`Vista previa de ${video.title}`}
-                class="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
-                loading="lazy"
-              />
-              <div class="absolute inset-0 flex items-center justify-center">
-                <div class="w-25 h-25 md:w-35 md:h-35 bg-center bg-no-repeat bg-contain fill-navy-blue-300 opacity-45 cursor-pointer group hover:scale-115 duration-500">
-                  <Play />
+  <div class="py-8 lg:py-15 relative max-w-[1520px] mx-auto">
+    <h1
+      class="text-6xl lg:text-8xl font-bold text-center mb-6 font-tangerine text-navy-blue-800 mt-20"
+    >
+      Mi Podcast
+    </h1>
+    <div
+      class="swiper videoSwiper max-w-[350px] lg:max-w-[1450px] h-[250px] md:h-[400px] relative"
+    >
+      <div class="swiper-wrapper">
+        {
+          videos.map((video) => (
+            <div class="swiper-slide">
+              <div
+                class="flex aspect-video max-w-[600px] rounded-xl overflow-hidden relative cursor-pointer"
+                onclick={`this.outerHTML = '<iframe class="justify-center items-center max-w-xl w-full h-[250px] sm:h-[380px]  rounded-xl" src="https://www.youtube.com/embed/${video.id}?autoplay=1" title="${video.title}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'`}
+              >
+                <img
+                  src={video.thumbnail}
+                  alt={`Vista previa de ${video.title}`}
+                  class="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+                  loading="lazy"
+                />
+                <div class="absolute inset-0 flex items-center justify-center">
+                  <div class="w-25 h-25 md:w-35 md:h-35 bg-center bg-no-repeat bg-contain fill-navy-blue-300 opacity-45 cursor-pointer group hover:scale-115 duration-500">
+                    <Play />
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        ))
-      }
+          ))
+        }
+      </div>
+      <div class="swiper-pagination mt-4"></div>
     </div>
-    <div class="swiper-pagination mt-4"></div>
-    <div class="swiper-button-prev "></div>
-    <div class="swiper-button-next"></div>
-  </div>
+    <div class="swiper-button-prev invisible md:visible"><ArrowLeft class="fill-navy-blue-800 w-5 h-5"/></div>
+    <div class="swiper-button-next invisible md:visible"><ArrowRight class="fill-navy-blue-800 w-5 h-5"/></div>
   </div>
 </section>
 <script>
@@ -105,7 +113,27 @@ const videos = [
   });
 </script>
 <style>
-      .swiper-wrapper {
+  .swiper-button-next,
+  .swiper-button-prev {
+    --swiper-navigation-size: 20px;
+    --swiper-navigation-top-offset: 60%;
+    height: 60px;
+    width: 40px;
+    position: absolute;
+    z-index: 10;
+    background-color: #e2edfc;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+  }
+  .swiper-button-prev {
+    left: 0; 
+  }
+
+  .swiper-button-next {
+    right: 0; 
+  }
+  .swiper-wrapper {
     display: flex;
     align-items: center;
     height: 100%;
@@ -122,4 +150,8 @@ const videos = [
     object-fit: contain;
     display: block;
   }
+  .swiper-button-next:after, 
+.swiper-button-prev:after {
+  display: none; 
+}
 </style>

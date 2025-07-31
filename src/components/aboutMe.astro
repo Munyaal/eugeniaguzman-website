@@ -73,11 +73,11 @@ const carData = [
 
 ---
 
-<section  id="sobre-mi" class=" ">
-  <div class="w-full px-4 py-8 md:pt-15">
-    <h1 class="text-6xl  lg:text-8xl font-bold text-center mb-6 md:mb-10 font-tangerine text-navy-blue-800 mt-15">Sobre mí</h1>
+<section id="sobre-mi" class="max-w-[350px]  md:max-w-[1520px] w-full mx-auto  p-4 md:p-8">
+  <div class="w-full px-4 py-8 md:pt-15 relative">
+    <h1 class="text-6xl lg:text-8xl font-bold text-center mb-6 md:mb-10 font-tangerine text-navy-blue-800 mt-15">Sobre mí</h1>
     
-    <div class="swiper aboutSwiper w-full max-w-[300px] md:max-w-[700px] lg:max-w-[1450px] mx-auto h-[450px] lg:h-[700px] relative">
+    <div class="swiper aboutSwiper w-full max-w-[300px] md:max-w-[500px] lg:max-w-[1450px] mx-auto h-[450px] lg:h-[650px]">
       <div class="swiper-wrapper">
         {carData.map((item) => (
           <div class="swiper-slide flex justify-center">
@@ -90,13 +90,12 @@ const carData = [
           </div>
         ))}
       </div>
-      
-      <!-- Paginación (siempre visible) -->
       <div class="swiper-pagination"></div>
-
-      <div class="swiper-button-prev invisible md:visible"></div>
-      <div class="swiper-button-next invisible md:visible"></div>
     </div>
+    
+    <!-- Botones fuera del swiper pero dentro del contenedor relativo -->
+    <div class="swiper-button-prev invisible md:visible"></div>
+    <div class="swiper-button-next invisible md:visible"></div>
   </div>
 </section>
 
@@ -136,3 +135,32 @@ new Swiper('.aboutSwiper', {
   },
 });
 </script>
+<style>
+  .swiper-button-next, .swiper-button-prev {
+    --swiper-navigation-size: 35px;
+    --swiper-navigation-top-offset: 55%;
+    --swiper-navigation-sides-offset: 150px;
+    color: #4499ec;
+    background-color: #e2edfc;
+    height: 60px;
+    width: 40px;
+    position: absolute; 
+    z-index: 10;
+  }
+  
+  .swiper-button-next{
+    border-radius: 0 25px 25px 0;
+  }
+  .swiper-button-prev{
+    border-radius: 25px 0 0 25px;
+  }
+  
+  @media (min-width: 1024px) {
+    .swiper-button-prev {
+      left: -30px; 
+    }
+    .swiper-button-next {
+      right: -30px; 
+    }
+  }
+</style>
