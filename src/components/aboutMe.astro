@@ -1,138 +1,175 @@
 ---
-import CardAboutMe from './cardAboutMe.astro';
+import CardAboutMe from "./cardAboutMe.astro";
 
 const carData = [
   {
-    image: '/images/card-educacion.webp',
-    title: 'Sector Educativo',
-    subtitle: 'Fundadora y Directora General de:',
+    image: "/images/card-educacion.webp",
+    title: "Sector Educativo",
+    subtitle: "Fundadora y Directora General de:",
     list: [
-        'Colegio Inglés Campus Playa del Carmen y Tulum.',
-        'Centro Universitario Inglés CUI Campus Playa del Carmen y Tulum.',
-        'Centro de Idiomas CUI Campus Playa del Carmen y Tulum.',
-        'Centro Educativo Kiin Beh, escuela para atender a niños de escasos recursos.']
+      "Colegio Inglés Campus Playa del Carmen y Tulum.",
+      "Centro Universitario Inglés CUI Campus Playa del Carmen y Tulum.",
+      "Centro de Idiomas CUI Campus Playa del Carmen y Tulum.",
+      "Centro Educativo Kiin Beh, escuela para atender a niños de escasos recursos.",
+    ],
   },
   {
-    image: '/images/card-telecomunicacion.webp',
-    title: 'Telecomunicación',
-    subtitle: 'Concesionaria por el <strong>Instituto Federal de Telecomunicaciones </strong> brindando servicios de Internet a través de:',
+    image: "/images/card-telecomunicacion.webp",
+    title: "Telecomunicación",
+    subtitle:
+      "Concesionaria por el <strong>Instituto Federal de Telecomunicaciones </strong> brindando servicios de Internet a través de:",
     list: [
-     'Enlaces Playa, Enlaces Puerto Morelos.',
-     'Enlaces Tulum y Enlaces Bacalar.',
-     'Munyaal - Empresa creadora de aplicaciones para hacer tu negocio inteligente.']
+      "Enlaces Playa, Enlaces Puerto Morelos.",
+      "Enlaces Tulum y Enlaces Bacalar.",
+      "Munyaal - Empresa creadora de aplicaciones para hacer tu negocio inteligente.",
+    ],
   },
   {
-    image: '/images/sector-inmobiliario.webp',
-    title: 'Desarrollo Inmobiliario',
-    subtitle: '',
-    list: [
-        'Baja California',
-        'Baja California Sur',
-        'Tulum',
-        'Morelos']
+    image: "/images/sector-inmobiliario.webp",
+    title: "Desarrollo Inmobiliario",
+    subtitle: "",
+    list: ["Baja California", "Baja California Sur", "Tulum", "Morelos"],
   },
   {
-    image: '/images/card-formacion-academico.webp',
-    title: 'Formación Académica',
-    subtitle: '',
+    image: "/images/card-formacion-academico.webp",
+    title: "Formación Académica",
+    subtitle: "",
     list: [
-    'Licenciada en Derecho, Universidad Anáhuac.',
-    'Diplomado IPADE',
-    'Maestría en Educación, Universidad Anáhuac.',
-    'Maestría en Alta Dirección, MIT Massachusetts Institute of Technology.']
+      "Licenciada en Derecho, Universidad Anáhuac.",
+      "Diplomado IPADE",
+      "Maestría en Educación, Universidad Anáhuac.",
+      "Maestría en Alta Dirección, MIT Massachusetts Institute of Technology.",
+    ],
   },
   {
-    image: '/images/card-membresia.webp',
-    title: 'Membresías',
-    subtitle: '',
+    image: "/images/card-membresia.webp",
+    title: "Membresías",
+    subtitle: "",
     list: [
-    'Presidente de la Asociación de Escuelas Particulares de la Península.',
-    'Miembro de AMEXME.',
-    'Socio de Coparmex Riviera Maya.',
-    'Socio de Skal International Capítulo Riviera Maya.']
+      "Presidente de la Asociación de Escuelas Particulares de la Península.",
+      "Miembro de AMEXME.",
+      "Socio de Coparmex Riviera Maya.",
+      "Socio de Skal International Capítulo Riviera Maya.",
+    ],
   },
   {
-    image: '/images/card-conferencia.webp',
-    title: 'Conferencista',
-    subtitle: '',
+    image: "/images/card-conferencia.webp",
+    title: "Conferencista",
+    subtitle: "",
     list: [
-    'Desde 2014 Conferencista a nivel nacional en temas de educación y desarrollo humano.',
-    'A partir de 2020 Podcastera Dominguera.']
+      "Desde 2014 Conferencista a nivel nacional en temas de educación y desarrollo humano.",
+      "A partir de 2020 Podcastera Dominguera.",
+    ],
   },
   {
-    image: '/images/card-lenguaje.webp',
-    title: 'Lenguaje',
-    subtitle: '',
-    list: [
-    'Español (Nativo)',
-    'Inglés',
-    'Francés']
-  }
+    image: "/images/card-lenguaje.webp",
+    title: "Lenguaje",
+    subtitle: "",
+    list: ["Español (Nativo)", "Inglés", "Francés"],
+  },
 ];
-
-
 ---
 
-<section  id="sobre-mi" class=" ">
-  <div class="w-full px-4 py-8 md:py-15  ">
-    <h1 class="text-6xl  lg:text-8xl font-bold text-center mb-6 md:mb-10 font-tangerine text-navy-blue-800 mt-15">Sobre mí</h1>
-    
-    <div class="swiper aboutSwiper w-full max-w-[300px] md:max-w-[700px] lg:max-w-[1450px] mx-auto h-[450px] lg:h-[700px] relative">
-      <div class="swiper-wrapper">
-        {carData.map((item) => (
-          <div class="swiper-slide flex justify-center">
-            <CardAboutMe
-              image={item.image}
-              title={item.title}
-              subtitle={item.subtitle}
-              list={item.list}
-            />
-          </div>
-        ))}
-      </div>
-      
-      <!-- Paginación (siempre visible) -->
-      <div class="swiper-pagination"></div>
+<section
+  id="sobre-mi"
+  class="max-w-[350px] md:max-w-[1520px] w-full mx-auto p-4 md:p-8"
+>
+  <div class="w-full px-4 py-8 md:pt-15 relative">
+    <h1
+      class="text-6xl lg:text-8xl font-bold text-center mb-6 md:mb-10 font-tangerine text-navy-blue-800 mt-15"
+    >
+      Sobre mí
+    </h1>
 
-      <div class="swiper-button-prev invisible md:visible"></div>
-      <div class="swiper-button-next invisible md:visible"></div>
+    <div
+      class="swiper aboutSwiper w-full max-w-[300px] md:max-w-[500px] lg:max-w-[1450px] mx-auto h-[450px] lg:h-[650px]"
+    >
+      <div class="swiper-wrapper">
+        {
+          carData.map((item) => (
+            <div class="swiper-slide flex justify-center">
+              <CardAboutMe
+                image={item.image}
+                title={item.title}
+                subtitle={item.subtitle}
+                list={item.list}
+              />
+            </div>
+          ))
+        }
+      </div>
+      <div class="swiper-pagination"></div>
     </div>
+
+    <!-- Botones fuera del swiper pero dentro del contenedor relativo -->
+    <div class="swiper-button-prev invisible md:visible"></div>
+    <div class="swiper-button-next invisible md:visible"></div>
   </div>
 </section>
 
 <script>
-import 'swiper/css';
-import 'swiper/css/pagination';
-import 'swiper/css/navigation';
-import Swiper from 'swiper/bundle';
-import { Navigation, Pagination } from 'swiper/modules';
+  import "swiper/css";
+  import "swiper/css/pagination";
+  import "swiper/css/navigation";
+  import Swiper from "swiper/bundle";
+  import { Navigation, Pagination } from "swiper/modules";
 
-new Swiper('.aboutSwiper', {
-  modules: [Navigation, Pagination],
-  slidesPerView: 1,
-  loop: true,
-  spaceBetween: 20,
-  pagination: {
-    el: '.swiper-pagination',
-    clickable: true,
-    dynamicBullets: true,
-  },
-  navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev'
-  },
-  breakpoints: {
-    640: {
-      slidesPerView: 1,
+  new Swiper(".aboutSwiper", {
+    modules: [Navigation, Pagination],
+    slidesPerView: 1,
+    loop: true,
+    spaceBetween: 20,
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+      dynamicBullets: true,
     },
-    768: {
-      slidesPerView: 2,
-      spaceBetween: 30,
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
     },
-    1024: {
-      slidesPerView: 3,
-      spaceBetween: 40,
+    breakpoints: {
+      640: {
+        slidesPerView: 1,
+      },
+      768: {
+        slidesPerView: 2,
+        spaceBetween: 30,
+      },
+      1024: {
+        slidesPerView: 3,
+        spaceBetween: 40,
+      },
     },
-  },
-});
+  });
 </script>
+<style>
+  .swiper-button-next,
+  .swiper-button-prev {
+    --swiper-navigation-size: 35px;
+    --swiper-navigation-top-offset: 55%;
+    --swiper-navigation-sides-offset: 150px;
+    color: #4499ec;
+    background-color: #e2edfc;
+    height: 60px;
+    width: 40px;
+    position: absolute;
+    z-index: 10;
+  }
+
+  .swiper-button-next {
+    border-radius: 0 25px 25px 0;
+  }
+  .swiper-button-prev {
+    border-radius: 25px 0 0 25px;
+  }
+
+  @media (min-width: 1024px) {
+    .swiper-button-prev {
+      left: -30px;
+    }
+    .swiper-button-next {
+      right: -30px;
+    }
+  }
+</style>

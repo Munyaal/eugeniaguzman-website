@@ -7,15 +7,15 @@ import Whatsapp from "../assets/svg/whatsapp.svg";
 <section class="bg-navy-blue-100" id="contacto">
   <div class="flex flex-col p-4 md:p-8 max-w-[1580px] w-full lg:mx-auto">
     <!-- Título -->
-    <h1 class="text-6xl md:text-8xl font-bold text-center mb-6 md:mb-10 font-tangerine text-navy-blue-800 mt-20">
+    <h1
+      class="text-6xl md:text-8xl font-bold text-center mb-6 md:mb-10 font-tangerine text-navy-blue-800 mt-20"
+    >
       Contáctame
     </h1>
 
-    <!-- Contenedor principal que cambia de columna a fila en md: -->
     <div class="flex flex-col md:flex-row gap-6 md:gap-8">
-      <!-- FORMULARIO (siempre primero en el flujo) -->
       <div class="w-full md:w-1/2 p-4 md:p-8 rounded-lg order-1 md:order-1">
-        <form>
+        <form id="contactForm">
           <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
             <!-- Nombre -->
             <div class="md:col-span-1">
@@ -54,16 +54,16 @@ import Whatsapp from "../assets/svg/whatsapp.svg";
             <!-- Email -->
             <div class="md:col-span-1">
               <label
-                for="fEmail"
+                for="fMail"
                 class="block text-base md:text-2xl font-medium text-navy-blue-800 mb-2 md:mb-4"
                 >Correo electrónico</label
               >
               <input
                 type="email"
-                name="fEmail"
-                id="fEmail"
+                name="fMail"
+                id="fMail"
                 placeholder="Tu correo electrónico"
-                required
+                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
                 class="w-full rounded-2xl border border-navy-blue-300 bg-navy-blue-100 text-navy-blue-600 py-2 px-4 text-base md:text-2xl font-medium outline-none focus:border-navy-blue-800 focus:shadow-md"
               />
             </div>
@@ -80,7 +80,6 @@ import Whatsapp from "../assets/svg/whatsapp.svg";
                 name="fSubject"
                 id="fSubject"
                 placeholder="Asunto del mensaje"
-                required
                 class="w-full rounded-2xl border border-navy-blue-300 bg-navy-blue-100 text-navy-blue-600 py-2 px-4 text-base md:text-2xl font-medium outline-none focus:border-navy-blue-800 focus:shadow-md"
               />
             </div>
@@ -113,9 +112,12 @@ import Whatsapp from "../assets/svg/whatsapp.svg";
         </form>
       </div>
 
-      <!-- INFORMACIÓN DE CONTACTO (segundo en móvil, derecha en desktop) -->
-      <div class="w-full md:w-1/2 bg-navy-blue-900 p-4 md:p-8 rounded-lg order-2 md:order-2">
-        <h1 class="text-white text-2xl md:text-3xl font-bold text-center">Contacto</h1>
+      <div
+        class="w-full md:w-1/2 bg-navy-blue-900 p-4 md:p-8 rounded-lg order-2 md:order-2"
+      >
+        <h1 class="text-white text-2xl md:text-3xl font-bold text-center">
+          Contacto
+        </h1>
 
         <div class="flex flex-col items-start mt-4 space-y-3 md:space-y-4">
           <div class="flex items-center gap-2">
@@ -144,11 +146,38 @@ import Whatsapp from "../assets/svg/whatsapp.svg";
             style="border:0;"
             allowfullscreen=""
             loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade" 
-            class="rounded-3xl h-[200px] md:h-[250px] lg:h-[300px] w-full max-w-[600px]">
+            referrerpolicy="no-referrer-when-downgrade"
+            class="rounded-3xl h-[200px] md:h-[250px] lg:h-[300px] w-full max-w-[600px]"
+          >
           </iframe>
         </div>
       </div>
     </div>
   </div>
 </section>
+<script>
+  import { apiWhatsApp, munyaalPhone } from "../utils/contants";
+
+  const contactForm = document.getElementById("contactForm") as HTMLFormElement;
+
+  contactForm?.addEventListener("submit", (event: Event) => {
+    event.preventDefault();
+    const formData = new FormData(contactForm as HTMLFormElement);
+    const { fName, fPhone, fMail, fSubject, fComments } = Object.fromEntries(
+      formData.entries()
+    );
+
+    const message = `Hola, soy *${fName}*.
+Mis datos de contacto son:
+*Correo electrónico:* ${fMail}
+*Teléfono:* ${fPhone}
+y me comunico para:
+*Asunto:* ${fSubject}
+*Mensaje:* ${fComments}`;
+
+    const url = `${apiWhatsApp}?phone=${munyaalPhone}&text=${encodeURIComponent(message)}`;
+    window.open(url, "_blank");
+
+    contactForm.reset();
+  });
+</script>
